@@ -144,10 +144,20 @@ a{text-decoration:none;color:inherit;}
 .page-header h1{font-family:'Cinzel',serif;font-size:clamp(20px,3vw,32px);font-weight:900;letter-spacing:3px;text-transform:uppercase;color:#e5ddc8;margin-bottom:10px;}
 .page-header p{color:#777;font-size:13px;}
 
-.filter-bar{max-width:1280px;margin:0 auto;padding:34px 24px 0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
-.filter-btn{background:transparent;border:1px solid var(--border);color:#999;padding:10px 20px;font-family:'Lato',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .25s;}
-.filter-btn:hover{border-color:var(--gold);color:var(--gold);}
-.filter-btn.active{background:var(--gold);border-color:var(--gold);color:#000;}
+.filter-bar{position:sticky;top:70px;z-index:150;background:#0c0c0cf2;backdrop-filter:blur(6px);border-bottom:1px solid var(--border);padding:14px 24px;margin-top:34px;box-shadow:0 10px 24px rgba(0,0,0,.35);}
+.filter-inner{max-width:1280px;margin:0 auto;position:relative;display:flex;}
+.filter-toggle{display:flex;align-items:center;gap:10px;background:transparent;border:1px solid var(--border);color:#ccc;padding:11px 20px;font-family:'Lato',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .25s;}
+.filter-toggle:hover{border-color:var(--gold);color:var(--gold);}
+.filter-toggle-icon{font-size:13px;line-height:1;}
+.filter-toggle small{transition:transform .25s;}
+.filter-toggle.open small{transform:rotate(180deg);}
+.filter-toggle.open{border-color:var(--gold);color:var(--gold);}
+.filter-menu{position:absolute;top:100%;left:0;margin-top:10px;background:#141414;border:1px solid var(--border);min-width:230px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .25s,transform .25s,visibility .25s;z-index:160;box-shadow:0 16px 40px rgba(0,0,0,.55);}
+.filter-menu.open{opacity:1;visibility:visible;transform:translateY(0);}
+.filter-menu .filter-btn{background:transparent;border:none;border-bottom:1px solid #1e1a10;color:#999;text-align:left;padding:13px 20px;font-family:'Lato',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.filter-menu .filter-btn:last-child{border-bottom:none;}
+.filter-menu .filter-btn:hover{color:var(--gold);background:#1a1710;padding-left:24px;}
+.filter-menu .filter-btn.active{color:#000;background:var(--gold);}
 
 .catalog-section{padding:36px 24px 68px;background:#0b0b0b;}
 .catalog-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px;}

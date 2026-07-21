@@ -65,12 +65,21 @@
 
 <!-- FILTROS -->
 <div class="filter-bar">
-  <button class="filter-btn" data-filter="todos">Todos</button>
-  <button class="filter-btn" data-filter="tabaco">Tabaco</button>
-  <button class="filter-btn" data-filter="piteira">Piteira</button>
-  <button class="filter-btn" data-filter="seda">Seda</button>
-  <button class="filter-btn" data-filter="acessorio">Acessórios</button>
-  <button class="filter-btn" data-filter="kit">Kits</button>
+  <div class="filter-inner">
+    <button class="filter-toggle" id="filterToggle" onclick="toggleFilterMenu(event)">
+      <span class="filter-toggle-icon">☰</span>
+      <span id="filterToggleLabel">Filtrar: Todos</span>
+      <small>▾</small>
+    </button>
+    <div class="filter-menu" id="filterMenu">
+      <button class="filter-btn active" data-filter="todos">Todos</button>
+      <button class="filter-btn" data-filter="tabaco">Tabaco</button>
+      <button class="filter-btn" data-filter="piteira">Piteira</button>
+      <button class="filter-btn" data-filter="seda">Seda</button>
+      <button class="filter-btn" data-filter="acessorio">Acessórios</button>
+      <button class="filter-btn" data-filter="kit">Kits</button>
+    </div>
+  </div>
 </div>
 
 <!-- CATÁLOGO -->
