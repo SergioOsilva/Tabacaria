@@ -212,14 +212,27 @@ document.querySelectorAll('.feat,.cat,.pc').forEach(el=>{
 });
 
 /* ===== FILTROS DO CATÁLOGO (produtos.html) ===== */
+function toggleFilterMenu(e, forceClose){
+  if(e) e.stopPropagation();
+  const toggle = document.getElementById('filterToggle');
+  const menu = document.getElementById('filterMenu');
+  if(!toggle || !menu) return;
+  const isOpen = menu.classList.contains('open');
+  const shouldOpen = forceClose ? false : !isOpen;
+  menu.classList.toggle('open', shouldOpen);
+  toggle.classList.toggle('open', shouldOpen);
+}
+
 function initCatalogFilters(){
   const bar = document.querySelector('.filter-bar');
   if(!bar) return;
 
   const grid = document.getElementById('catalogGrid');
   const empty = document.getElementById('catalogEmpty');
+  const label = document.getElementById('filterToggleLabel');
   const buttons = bar.querySelectorAll('.filter-btn');
   const cards = grid.querySelectorAll('.pc');
+  const labels = {todos:'Todos', tabaco:'Tabaco', piteira:'Piteira', seda:'Seda', acessorio:'Acessórios', kit:'Kits'};
 
   function applyFilter(cat){
     let visibleCount = 0;
@@ -230,10 +243,18 @@ function initCatalogFilters(){
     });
     empty.style.display = visibleCount === 0 ? 'block' : 'none';
     buttons.forEach(b=> b.classList.toggle('active', b.dataset.filter === cat));
+    if(label) label.textContent = 'Filtrar: ' + (labels[cat] || 'Todos');
   }
 
   buttons.forEach(btn=>{
-    btn.addEventListener('click', ()=> applyFilter(btn.dataset.filter));
+    btn.addEventListener('click', ()=>{
+      applyFilter(btn.dataset.filter);
+      toggleFilterMenu(null, true);
+    });
+  });
+
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.filter-bar')) toggleFilterMenu(null, true);
   });
 
   const params = new URLSearchParams(window.location.search);
