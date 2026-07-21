@@ -139,6 +139,21 @@ a{text-decoration:none;color:inherit;}
 .arr.l{left:-18px;}
 .arr.r{right:-18px;}
 
+/* PÁGINA DE PRODUTOS (catálogo) */
+.page-header{padding:56px 24px 0;text-align:center;}
+.page-header h1{font-family:'Cinzel',serif;font-size:clamp(20px,3vw,32px);font-weight:900;letter-spacing:3px;text-transform:uppercase;color:#e5ddc8;margin-bottom:10px;}
+.page-header p{color:#777;font-size:13px;}
+
+.filter-bar{max-width:1280px;margin:0 auto;padding:34px 24px 0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
+.filter-btn{background:transparent;border:1px solid var(--border);color:#999;padding:10px 20px;font-family:'Lato',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .25s;}
+.filter-btn:hover{border-color:var(--gold);color:var(--gold);}
+.filter-btn.active{background:var(--gold);border-color:var(--gold);color:#000;}
+
+.catalog-section{padding:36px 24px 68px;background:#0b0b0b;}
+.catalog-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px;}
+.catalog-grid .pc{width:auto;}
+.catalog-empty{display:none;text-align:center;color:#666;padding:70px 20px;font-size:13px;letter-spacing:.5px;}
+
 /* VIP */
 .vip{background:#0d0b06;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:30px 24px;}
 .vip-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
